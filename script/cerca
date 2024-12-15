@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# By Eugenio Gonzato - 01/11/2024
+# Comando per cercare termini all'interno dei file di appunti
+# esempio di comando grep -in rofi *.md
+
+clear
+echo ${0} ${*}
+echo "RISOLTATI DELLA RICERCA ..."
+grep --color=auto -in ${1} *.md
+exit 0
+

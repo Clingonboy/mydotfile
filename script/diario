@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# By Eugenio Gonzato - 23/06/2024
+# Script for dayly note.
+
+cd /home/uge/Git/appunti2022
+
+d=$(date +'%F')
+e='.md'
+
+f="${d}${e}"
+
+if [ -f ${f} ]; then
+  vim ${f}
+else
+  touch ${f};
+  echo "# ${d}" > ${f};
+  vim ${f};
+fi
+
+exit 0

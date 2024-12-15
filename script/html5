@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# By Eugenio Gonzato - 29/11/2024
+# Comando per stampare una pagina html base
+# utile come snapshot per vim per inizializzare il un nuovo file html
+
+
+echo '<!DOCTYPE html>'
+echo '<html lang="en">'
+echo '<head>'
+echo '  <title>La mia pagina web</title>'
+echo '  <meta charset="utf-8"/>'
+echo '</head>'
+echo '<body>'
+echo '</body>'
+echo '</html>'
+

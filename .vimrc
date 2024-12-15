@@ -1,63 +1,70 @@
-" Ultima modifica 03 Maggio 2024
-source /usr/local/share/vim/vim91/defaults.vim
+source /usr/share/vim/vim90/defaults.vim
+set bg=dark "Principalmente per vedere correttamente i colori anche su tmux
 set nu rnu
-set hidden
+inoremap jk <ESC>
+set hidden "Per cambiare buffer anche se il buffer attuale non è salvato.
 
-" GESTIONE DEL CURSORE
-" Use a blinking upright bar cursor in Insert mode, a blinking block in normal
-if &term == 'xterm-256color' || &term == 'screen-256color'
-    let &t_SI = "\<Esc>[5 q"
-    let &t_EI = "\<Esc>[1 q"
-endif
+"-----------------MAPPING----------------------------------------------------"
+map <F2> GoDate: <ESC>:read !date<CR>kj
 
-if exists('$TMUX')
-    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-endif
-
-colorscheme desert
-hi Normal guibg=NONE ctermbg=NONE
-
-" MAPPING
-set timeoutlen=200
-inoremap jk <Esc>
-nnoremap <space>n :bn<cr>
-
-" INDENTATION
+"-----------------INDENTATION------------------------------------------------"
 set expandtab
+set tabstop=2      " Optional, if you want files with tabs to look the same too.
 set shiftwidth=2
-set autoindent
-set smartindent
-set tabstop=2
+set softtabstop=-2 " Use value of shiftwidth
+set smarttab       " Always use shiftwidth
 
-" Toggle Vexplore with Ctrl-E
-function! ToggleVExplorer()
-  if exists("t:expl_buf_num")
-      let expl_win_num = bufwinnr(t:expl_buf_num)
-      if expl_win_num != -1
-          let cur_win_id = win_getid()
-          exec expl_win_num . 'windo close'
-          let prev_win_num = win_id2win(cur_win_id)
-          if prev_win_num != 0
-              exec prev_win_num . 'wincmd w'
-          endif
-      endif
-      unlet t:expl_buf_num
-  else
-      exec '1wincmd w'
-      Vexplore
-      let t:expl_buf_num = bufnr("%")
-  endif
-endfunction
-map <silent> <C-E> :call ToggleVExplorer()<CR>
+"-----------------STATUSLINE------------------------------------------------"
+set laststatus=2
+highlight MyStatusLineElement guifg=red ctermfg=red
+hi StatusLine ctermbg=0 cterm=NONE
+set statusline=%F\ %#MyStatusLineElement#%h\ %m\ %r\ %*%=%-14.(%l,%c%V%)\ %P
 
-" Hit enter in the file browser to open the selected
-" file with :vsplit to the right of the browser.
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
 
-" Use ctrl-[hjkl] to select the active split!
-nmap <silent> <c-k> :wincmd k<CR>
-nmap <silent> <c-j> :wincmd j<CR>
-nmap <silent> <c-h> :wincmd h<CR>
-nmap <silent> <c-l> :wincmd l<CR>
+"-----------------PLUGIN----------------------------------------------------"
+call plug#begin()
+
+Plug 'dense-analysis/ale'
+Plug 'sainnhe/gruvbox-material'
+
+call plug#end()
+
+set signcolumn=yes
+let g:ale_set_signs = 1
+let g:ale_sign_info = '✨'
+let g:ale_sign_error = '🔥'
+let g:ale_sign_warning = '❗️'
+let g:ale_sign_hint = '💡'
+
+
+"-----------------COLOR----------------------------------------------------"
+colorscheme gruvbox-material
+set cursorline
+
+" base default color changes (gruvbox dark friendly)
+hi CursorLineNr ctermfg=yellow
+hi CursorLine ctermbg=NONE
+hi StatusLine ctermbg=NONE
+hi ModeMsg ctermfg=yellow
+hi MoreMsg ctermfg=yellow
+"hi StatusLine ctermfg=black ctermbg=NONE
+hi StatusLineNC ctermfg=yellow ctermbg=NONE
+hi Normal ctermbg=NONE
+hi Special ctermfg=cyan
+"hi LineNr ctermfg=black ctermbg=NONE
+hi SpecialKey ctermfg=black ctermbg=NONE
+"hi ModeMsg ctermfg=black cterm=NONE ctermbg=NONE
+hi MoreMsg ctermfg=black ctermbg=NONE
+hi NonText ctermfg=black ctermbg=NONE
+hi vimGlobal ctermfg=black ctermbg=NONE
+hi ErrorMsg ctermbg=234 ctermfg=darkred cterm=NONE
+hi Error ctermbg=234 ctermfg=darkred cterm=NONE
+hi SpellBad ctermbg=234 ctermfg=darkred cterm=NONE
+hi SpellRare ctermbg=234 ctermfg=darkred cterm=NONE
+hi Search ctermbg=236 ctermfg=darkred
+hi vimTodo ctermbg=236 ctermfg=darkred
+hi Todo ctermbg=236 ctermfg=darkred
+hi IncSearch ctermbg=236 cterm=NONE ctermfg=darkred
+hi MatchParen ctermbg=236 ctermfg=darkred
+hi SignColumn ctermbg=NONE " make gutter less annoying
+hi WinBar ctermfg=black ctermbg=NONE cterm=NONE

@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# By Eugenio Gonzato - 17/10/2024
+# Script per generare file markdown con titolo e frontmetter
+# con campo data
+
+
+cd /home/uge/Git/appunti2022
+
+if [ -f $1.md ]; then
+    vim $1.md
+else
+    touch $1.md;
+    echo "# ${1^}" >> $1.md;
+    echo "---" >> $1.md;
+    echo "date: $(date +'%F')" >> $1.md;
+    echo "---" >> $1.md;
+    vim $1.md;
+fi
+
+exit 0
