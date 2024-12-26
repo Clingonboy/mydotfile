@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+if [[ $1 = "--add" ]]; then
+  echo 'black="\e[30m"'
+  echo 'red="\e[31m"'
+  echo 'green="\e[32m"'
+  echo 'yellow="\e[33m"'
+  echo 'blue="\e[34m"'
+  echo 'magenta="\e[35m"'
+  echo 'cyan="\e[36m"'
+  echo 'white="\e[37m"'
+  echo 'blink="\e[5m"'
+  echo 'reset="\e[0m"'
+  exit 0
+fi
+
+echo -e black="\e[30m" EXAMPLE "\e[0m"
+echo -e red="\e[31m" EXAMPLE "\e[0m"
+echo -e green="\e[32m" EXAMPLE "\e[0m"
+echo -e yellow="\e[33m" EXAMPLE "\e[0m"
+echo -e blue="\e[34m" EXAMPLE "\e[0m"
+echo -e magenta="\e[35m" EXAMPLE "\e[0m"
+echo -e cyan="\e[36m" EXAMPLE "\e[0m"
+echo -e white="\e[37m" EXAMPLE "\e[0m"
+echo -e blink="\e[5m" EXAMPLE "\e[0m"
+echo -e reset="\e[0m" EXAMPLE "\e[0m"
