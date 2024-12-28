@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
 if [[ $1 = "--add" ]]; then
-  echo 'black="\e[30m"'
-  echo 'red="\e[31m"'
-  echo 'green="\e[32m"'
-  echo 'yellow="\e[33m"'
-  echo 'blue="\e[34m"'
-  echo 'magenta="\e[35m"'
-  echo 'cyan="\e[36m"'
-  echo 'white="\e[37m"'
-  echo 'blink="\e[5m"'
-  echo 'reset="\e[0m"'
+  echo "black=$'\e[30m'"
+  echo "red=$'\e[31m'"
+  echo "green=$'\e[32m'"
+  echo "yellow=$'\e[33m'"
+  echo "blue=$'\e[34m'"
+  echo "magenta=$'\e[35m'"
+  echo "cyan=$'\e[36m'"
+  echo "white=$'\e[37m'"
+  echo "blink=$'\e[5m'"
+  echo "reset=$'\e[0m'"
   exit 0
 fi
 
