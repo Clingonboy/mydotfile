@@ -21,3 +21,9 @@ Serve per fare lo split arizzontale in tmux nella stessa directory della finestr
 
 #### vv
 Serve per fare lo split verticale in tmux nella stessa directory della finestra attiva
+
+### ca
+Crea appunti, crea un file markdown nella cartella degli appunti con il nome uguale al primo argomento scritto dopo la funzione, aggiunge una riga con la data.
+
+### diario
+Crea un file diario nella cartella appunti.
