@@ -1,0 +1,62 @@
+! Copy the configuration below to your ~/.Xresources file
+! Root Loops (via rootloops.sh)
+
+! XTerm.vt100.renderFont: true
+! XTerm.vt100.faceName: Iosevka Term
+! XTerm.vt100.faceName: Fira Code Medium
+! XTerm.vt100.faceSize: 18
+! XTerm.vt100.scaleHeight: 1
+! XTerm.vt100.letterSpace: -4
+
+xterm*faceName: Iosevka Term Medium
+xterm*faceSize: 18
+xterm*renderFont: true
+
+
+xterm*background: #262626
+xterm*foreground: #ebdbb2
+xterm*color0: #262628
+xterm*color8: #928374
+xterm*color1: #CC241D
+xterm*color9: #fb4934
+xterm*color2: #98971a
+xterm*color10: #b8bb26
+xterm*color3: #FF8F15
+xterm*color11: #FFAF00
+xterm*color4: #458588
+xterm*color12: #83a598
+xterm*color5: #b16286
+xterm*color13: #d3869b
+xterm*color6: #689d6a
+xterm*color14: #8ec07c
+xterm*color7: #a89984
+xterm*color15: #ebdbb2
+
+! Aggiunta padding
+xterm*internalBorder: 20
+
+! Rimozione del suono
+XTerm*visualBell: false
+XTerm*bellIsUrgent: false
+
+! Rimozione scroll bar
+XTerm*scrollBar: false
+
+! Abilitare il copia-incolla
+XTerm*selectToClipboard: true
+XTerm*disallowedWindowOps: 20,21,SetXprop
+XTerm*VT100.translations: #override \
+    Shift Ctrl <Key>C: copy-selection(CLIPBOARD) \n\
+    Shift Ctrl <Key>V: insert-selection(CLIPBOARD) \n\
+    Ctrl <Key>v: insert-selection(CLIPBOARD) \n\
+    Ctrl <Key>c: copy-selection(CLIPBOARD) \n\
+    <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0) \n\
+    <BtnUp>: select-end(PRIMARY, CLIPBOARD)
+
+! Abilita ctrl + ctrl - per aumentare o diminuire il font size
+XTerm*VT100.Translations: #override \
+    Ctrl <Key>plus: larger-vt-font() \n\
+    Ctrl <Key>minus: smaller-vt-font()
+
+! Abilita funzionalitá del mouse
+XTerm*vt100.mouse: true
