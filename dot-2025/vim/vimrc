@@ -1,0 +1,8 @@
+source ~/.vim/keybinds.vim
+source ~/.vim/plugins.vim
+source ~/.vim/colors.vim
+source ~/.vim/fzf.vim
+source ~/.vim/options.vim
+
+highlight Normal guibg=NONE ctermbg=NONE
+highlight NormalNC guibg=NONE ctermbg=NONE
